@@ -11,10 +11,15 @@ const ip_proto_t IP_PROTO_ICMP = 1;
 const ip_proto_t IP_PROTO_IPV4 = 4;
 const ip_proto_t IP_PROTO_TCP = 6;
 const ip_proto_t IP_PROTO_UDP = 17;
+const ip_proto_t IP_PROTO_ML = 253;
 
 typedef bit<9> port_t;
 
+// Sharma ops
+typedef bit<32> op_t;
+
 const port_t CPU_PORT = 255;
+const port_t OUT_PORT = 4;
 
 #define REG_SIZE 32768
 #define SAMPLING 1024
