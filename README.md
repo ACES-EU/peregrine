@@ -1,7 +1,9 @@
 # Peregrine
 
 Peregrine is a malicious traffic detector that leverages the programmable data plane to execute a subset of the overall intrusion detection pipeline, offloading feature computation to the switch-level.
+
 Specifically, it performs packet header extraction and the calculation of network features, per-packet, for all packets, entirely on data plane switches.
+
 The obtained statistics are sent to the control plane following a per-epoch approach: at the end of each epoch (according to an operator-defined value), a features record is sent to the server with all computed features to trigger ML-based detection - the downsampling required to reconcile the traffic rates of the switch and the server.
 The subsequent machine learning-based classification is then performed at the control plane level.
 
@@ -12,8 +14,9 @@ This repository contains data plane implementations for the Tofino Native Archit
 - Intel Tofino SDE
 
 Tested Versions:
-    - TNA:  9.7.0
-    - T2NA: 9.12.0
+
+- TNA:  9.7.0
+- T2NA: 9.12.0
 
 ## Compilation
 
