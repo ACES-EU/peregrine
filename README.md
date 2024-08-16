@@ -2,7 +2,7 @@
 
 Peregrine is an ML-based malicious traffic detector for Terabit networks that runs the detection process partially in the network data plane. Specifically, Peregrine offloads the detector’s ML feature computation to a commodity switch. The Peregrine switch processes a diversity of features per-packet, at Tbps line rates to feed the ML-based component in the control plane. While, in practice, current IDS systems sample raw traffic, in Peregrine sampling occurs after feature computation. This essential trait enables computing features over all traffic, significantly enhancing detection performance.
 
-The calculated features statistics are sent to the control plane following a per-epoch approach: at the end of each epoch (according to an operator-defined value), a features record is sent to the server with all computed features to trigger ML-based detection - the downsampling required to reconcile the traffic rates of the switch and the server.
+The calculated features are sent to the control plane following a per-epoch approach: at the end of each epoch (according to an operator-defined value), a features record is sent to the server with all computed features to trigger ML-based detection - the downsampling required to reconcile the traffic rates of the switch and the server.
 The subsequent machine learning-based classification is then performed at the control plane level.
 
 This repository contains data plane implementations for the Tofino Native Architecture: Tofino 1 (TNA) and Tofino 2 (T2NA).
