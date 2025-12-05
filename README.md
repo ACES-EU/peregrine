@@ -5,7 +5,7 @@ Peregrine is an ML-based malicious traffic detector for Terabit networks that ru
 The calculated features are sent to the control plane following a per-epoch approach: at the end of each epoch (according to an operator-defined value), a features record is sent to the server with all computed features to trigger ML-based detection - the downsampling required to reconcile the traffic rates of the switch and the server.
 The subsequent machine learning-based classification is then performed at the control plane level.
 
-This repository contains data plane implementations for the Tofino Native Architecture: Tofino 1 (TNA) and Tofino 2 (T2NA), along with a control plane module that receives the data plane features and feeds them to a ML classification engine - KitNET. The control plane module receives as input a previously-trained model (e.g., from the Kitsune dataset's Mirai attack trace).
+This repository contains (1) data plane implementations for the Tofino Native Architecture: Tofino 1 (TNA) and Tofino 2 (T2NA), (2) a python-based data plane simulator that replicates the P4 code behavior, and (3) a control plane module that receives the data plane features and feeds them to a ML classification engine - KitNET. The data plane simulator and the control plane modules receive as input a previously-trained model (e.g., from the Kitsune dataset's Mirai attack trace).
 
 ## Requirements
 
@@ -58,6 +58,21 @@ $ ./run_switchd.sh -p peregrine
 
 ```
 cd py/
-$ python3 controller.py --cur_veth #INCOMING_PKT_VETH --max_ae $MAX_AE --fm_model $FM_PATH --el_model $EL_PATH --ol_model $OL_PATH --train_stats $TRAIN_STATS_PATH --thres $THRES_PATH --attack $CUR_ATTACK_NAME
+$ python3 controller.py -c conf/kitnet/kitsune/mirai-1.yml
 ```
 
+An example execution using the data plane simulator is as follows:
+
+### Start the data plane simulator.
+
+```
+$ cd py/dp-sim
+$ python3 peregrine.py -c conf/kitnet/kitsune/mirai-1.yml
+```
+
+### Start control plane module.
+
+```
+$ cd py/ml-module
+$ python3 controller.py -c conf/kitnet/kitsune/mirai-1.yml
+```
