@@ -1,0 +1,14 @@
+# iface.
+iface: veth0
+# Pcap file path.
+trace: /home/docker/datasets/kitsune/ssdp-flood/ssdp-flood.pcap
+# Execution phase sampling rate.
+sampl: 16384
+# Number of packets in the training phase.
+train_pkt_cnt: 1000000
+# Previously trained stats struct path.
+train_stats: /home/docker/peregrine/controller/py-aces/dp-sim/models/ssdp-flood-m-10-r-0-train-stats.txt
+# Current trace dataset.
+dataset: kitsune
+# Current trace attack name.
+attack: ssdp-flood

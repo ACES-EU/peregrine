@@ -1,0 +1,20 @@
+# iface.
+iface: veth1
+# FM grace.
+fm_grace: 100000
+# AD grace.
+ad_grace: 900000
+# KitNET: m value.
+max_ae: 10
+# Previously trained FM model path.
+fm_model: /home/docker/peregrine/controller/py-aces/ml-module/plugins/KitNET/models/ssdp-flood-m-10-r-0-fm.txt
+# Previously trained EL model path.
+el_model: /home/docker/peregrine/controller/py-aces/ml-module/plugins/KitNET/models/ssdp-flood-m-10-r-0-el.txt
+# Previously trained OL model path.
+ol_model: /home/docker/peregrine/controller/py-aces/ml-module/plugins/KitNET/models/ssdp-flood-m-10-r-0-ol.txt
+# Previously trained stats struct path.
+train_stats: /home/docker/peregrine/controller/py-aces/ml-module/plugins/KitNET/models/ssdp-flood-m-10-r-0-train-stats.txt
+# Previously calculated threshold value.
+thres: /home/docker/peregrine/controller/py-aces/ml-module/plugins/KitNET/models/ssdp-flood-m-10-r-0-threshold.txt
+# Current trace attack name.
+attack: ssdp-flood

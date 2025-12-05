@@ -1,0 +1,14 @@
+# iface.
+iface: veth0
+# Pcap file path.
+trace: /home/docker/datasets/kitsune/mirai/mirai.pcap
+# Execution phase sampling rate.
+sampl: 1
+# Number of packets in the training phase.
+train_pkt_cnt: 55000
+# Previously trained stats struct path.
+train_stats: /home/docker/peregrine/controller/py-aces/dp-sim/models/mirai-m-10-r-0-train-stats.txt
+# Current trace dataset.
+dataset: kitsune
+# Current trace attack name.
+attack: mirai
